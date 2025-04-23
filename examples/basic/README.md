@@ -1,4 +1,4 @@
-# with_cake
+# Basic example
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
