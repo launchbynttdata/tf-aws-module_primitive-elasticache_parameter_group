@@ -103,19 +103,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.14 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.95.0 |
 
 ## Modules
 
@@ -131,18 +125,18 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | (Required) The name of the ElastiCache parameter group. | `string` | n/a | yes |
-| <a name="input_family"></a> [family](#input\_family) | (Required) The family of the ElastiCache parameter group. | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | (Optional) The description of the ElastiCache parameter group. | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | (Optional) Key-value mapping of resource tags. | `map(string)` | `{}` | no |
+| <a name="input_family"></a> [family](#input\_family) | (Required) The family of the ElastiCache parameter group. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | (Required) The name of the ElastiCache parameter group. | `string` | n/a | yes |
 | <a name="input_parameters"></a> [parameters](#input\_parameters) | (Optional) A list of ElastiCache parameters to apply. | <pre>list(object({<br/>    name  = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | (Optional) Key-value mapping of resource tags. | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_elasticache_parameter_group_arn"></a> [elasticache\_parameter\_group\_arn](#output\_elasticache\_parameter\_group\_arn) | n/a |
-| <a name="output_elasticache_parameter_group_name"></a> [elasticache\_parameter\_group\_name](#output\_elasticache\_parameter\_group\_name) | n/a |
 | <a name="output_elasticache_parameter_group_family"></a> [elasticache\_parameter\_group\_family](#output\_elasticache\_parameter\_group\_family) | n/a |
+| <a name="output_elasticache_parameter_group_name"></a> [elasticache\_parameter\_group\_name](#output\_elasticache\_parameter\_group\_name) | n/a |
 | <a name="output_elasticache_parameter_group_parameters"></a> [elasticache\_parameter\_group\_parameters](#output\_elasticache\_parameter\_group\_parameters) | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
