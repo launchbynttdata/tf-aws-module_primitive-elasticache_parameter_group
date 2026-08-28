@@ -17,7 +17,7 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	awsClient := GetAWSElasticacheClient(t)
 
 	t.Run("TestIsDeployed", func(t *testing.T) {
-		parameterGroupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "elasticache_parameter_group_name")
+		parameterGroupName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "elasticache_parameter_group_name")
 		out, err := awsClient.DescribeCacheParameterGroups(context.TODO(), &elasticache.DescribeCacheParameterGroupsInput{
 			CacheParameterGroupName: aws.String(parameterGroupName),
 		})
@@ -30,8 +30,8 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	})
 
 	t.Run("TestFamily", func(t *testing.T) {
-		parameterGroupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "elasticache_parameter_group_name")
-		parameterGroupFamily := terraform.Output(t, ctx.TerratestTerraformOptions(), "elasticache_parameter_group_family")
+		parameterGroupName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "elasticache_parameter_group_name")
+		parameterGroupFamily := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "elasticache_parameter_group_family")
 		out, err := awsClient.DescribeCacheParameterGroups(context.TODO(), &elasticache.DescribeCacheParameterGroupsInput{
 			CacheParameterGroupName: aws.String(parameterGroupName),
 		})
@@ -44,8 +44,8 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	})
 
 	t.Run("TestDeployedParameters", func(t *testing.T) {
-		parameterGroupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "elasticache_parameter_group_name")
-		parameterGroupParameters := terraform.OutputListOfObjects(t, ctx.TerratestTerraformOptions(), "elasticache_parameter_group_parameters")
+		parameterGroupName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "elasticache_parameter_group_name")
+		parameterGroupParameters := terraform.OutputListOfObjectsContext(t, context.Background(), ctx.TerratestTerraformOptions(), "elasticache_parameter_group_parameters")
 
 		out, err := awsClient.DescribeCacheParameters(context.TODO(), &elasticache.DescribeCacheParametersInput{
 			CacheParameterGroupName: aws.String(parameterGroupName),
